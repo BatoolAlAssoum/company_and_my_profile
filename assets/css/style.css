@@ -168,13 +168,70 @@ h6 {
   color: #fff;
 }
 
+.navbar .dropdown ul {
+  display: block;
+  position: absolute;
+  left: 30px;
+  top: calc(100% + 30px);
+  margin: 0;
+  padding: 10px 0;
+  z-index: 99;
+  opacity: 0;
+  visibility: hidden;
+  background: #fff;
+  box-shadow: 0px 0px 30px rgba(127, 137, 161, 0.25);
+  transition: 0.3s;
+  border-radius: 4px;
+}
+
+.navbar .dropdown ul li {
+  min-width: 200px;
+}
+
+.navbar .dropdown ul a {
+  padding: 10px 20px;
+  font-size: 14px;
+  font-weight: 500;
+  text-transform: none;
+  color: #01036f;
+}
+
+.navbar .dropdown ul a i {
+  font-size: 12px;
+}
+
+.navbar .dropdown ul a:hover,
+.navbar .dropdown ul .active:hover,
+.navbar .dropdown ul li:hover>a {
+  color: #1acc8d;
+}
+
+.navbar .dropdown:hover>ul {
+  opacity: 1;
+  top: 100%;
+  visibility: visible;
+}
+
+.navbar .dropdown .dropdown ul {
+  top: 0;
+  left: calc(100% - 30px);
+  visibility: hidden;
+}
+
+.navbar .dropdown .dropdown:hover>ul {
+  opacity: 1;
+  top: 0;
+  left: 100%;
+  visibility: visible;
+}
+
 
 @media (max-width: 1366px) {
-  .navbar ul {
+  .navbar .dropdown .dropdown ul {
     left: -90%;
   }
 
-  .navbar :hover>ul {
+  .navbar .dropdown .dropdown:hover>ul {
     left: -100%;
   }
 }
@@ -250,13 +307,9 @@ h6 {
   color: #3f43fd;
 }
 
-.navbar-mobile .getstarted,
-.navbar-mobile .getstarted:focus {
-  margin: 15px;
-}
 
-.navbar-mobile  ul,
-.navbar-mobile ul {
+.navbar-mobile .dropdown ul,
+.navbar-mobile .dropdown .dropdown ul {
   position: static;
   display: none;
   margin: 10px 20px;
@@ -268,34 +321,6 @@ h6 {
   box-shadow: 0px 0px 30px rgba(127, 137, 161, 0.25);
 }
 
-.navbar-mobile ul li,
-.navbar-mobile ul li {
-  min-width: 200px;
-}
-
-.navbar-mobile ul a,
-.navbar-mobile ul a {
-  padding: 10px 20px;
-}
-
-.navbar-mobile ul a i,
-.navbar-mobile ul a i {
-  font-size: 12px;
-}
-
-.navbar-mobile ul a:hover,
-.navbar-mobile ul .active:hover,
-.navbar-mobile ul li:hover>a,
-.navbar-mobile ul a:hover,
-.navbar-mobile ul .active:hover,
-.navbar-mobile ul li:hover>a {
-  color: #1acc8d;
-}
-
-.navbar-mobile .dropdown>.dropdown-active,
-.navbar-mobile .dropdown .dropdown>.dropdown-active {
-  display: block;
-}
 
 /*--------------------------------------------------------------
 # Hero Section
@@ -464,7 +489,7 @@ h6 {
 --------------------------------------------------------------*/
 .about {
   padding: 4px 0 0 0;
-  background-color: hsla(0, 28%, 86%, 0.886) ;
+  background-color:  hsla(0, 80%, 96%, 0.886) ;
 }
 
 .about .icon-boxes h3 {
@@ -832,41 +857,42 @@ section {
 }
 
 .contact .section-title h2{
-  text-align: left;
-  direction: ltr;
+  text-align: right;
+  direction: rtl;
 }
 
 .contact .section-title  p{
-  text-align: left;
+  text-align: right;
+  font-size: 30px;
+  margin-top: 50px;
+  font-weight: 150;
 }
 
 .contact .info i {
   font-size: 20px;
   color: #3f43fd;
-  float: left;
+  float: right;
   width: 44px;
   height: 44px;
   background:  #ededf9;
   display: flex;
   justify-content: center;
-  align-items: center;
+  align-items:center ;
   border-radius: 50px;
   transition: all 0.3s ease-in-out;
 }
 
-.contact .info h4 {
-  padding: 0 0 0 60px;
-  font-size: 22px;
-  font-weight: 600;
-  margin-bottom: 5px;
-  color: #010483;
+.contact .info p {
+  padding: 10px 0 0 60px;
+  margin-bottom: 0;
+  font-size: 18px;
+  color: #0205a1;
+  text-align: right;
+  direction: rtl;
 }
 
-.contact .info p {
-  padding: 0 0 0 60px;
-  margin-bottom: 0;
-  font-size: 14px;
-  color: #0205a1;
+.contact .info #call{
+  margin: 5px;
 }
 
 .contact .info .email,
@@ -881,80 +907,28 @@ section {
   color: #fff;
 }
 
-.contact .php-email-form {
-  width: 100%;
-  background: #ededf9;
+.contact .form-group #reset{
+  margin: 5px;
+  background-color: #beeada;
 }
 
-.contact .php-email-form .form-group {
-  padding-bottom: 8px;
+.contact .form-group #reset:hover{
+  margin: 10px;
+  background-color: #acd7c7;
 }
 
-.contact .php-email-form .error-message {
-  display: none;
-  color: #fff;
-  background: #ed3c0d;
-  text-align: left;
-  padding: 15px;
-  font-weight: 600;
-}
-
-.contact .php-email-form .error-message br+br {
-  margin-top: 25px;
-}
-
-.contact .php-email-form .sent-message {
-  display: none;
-  color: #fff;
-  background: #18d26e;
-  text-align: center;
-  padding: 15px;
-  font-weight: 600;
-}
-
-.contact .php-email-form .loading {
-  display: none;
-  background: #fff;
-  text-align: center;
-  padding: 15px;
-}
-
-.contact .php-email-form .loading:before {
-  content: "";
-  display: inline-block;
-  border-radius: 50%;
-  width: 24px;
-  height: 24px;
-  margin: 0 10px -6px 0;
-  border: 3px solid #18d26e;
-  border-top-color: #eee;
-  animation: animate-loading 1s linear infinite;
-}
-
-.contact .php-email-form input,
-.contact .php-email-form textarea {
-  border-radius: 0;
-  box-shadow: none;
-  font-size: 14px;
-}
-
-.contact .php-email-form input {
-  height: 44px;
-}
-
-.contact .php-email-form textarea {
-  padding: 10px 12px;
-}
-
-.contact .php-email-form button[type=submit] {
+.contact button[type=submit] {
   background: #1acc8d;
   border: 0;
   padding: 10px 30px;
   color: #fff;
   transition: 0.4s;
   border-radius: 50px;
+  
 }
 
-.contact .php-email-form button[type=submit]:hover {
+.contact button[type=submit]:hover {
   background: #34e5a6;
 }
+
+
